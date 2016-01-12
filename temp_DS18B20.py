@@ -34,7 +34,8 @@ def read_temp():
 
 while True:
     #print("temp C=%f\ttemp F=%f" % read_temp())
-    time.sleep(300)
+    # Send data every 10 minutes.
+    time.sleep(230)
 
     mes = "%.6d0%.6d" % read_temp()
     print mes
@@ -60,4 +61,4 @@ while True:
     #print datetime.now()
     time.sleep(2) # 1100s 18 minutes
     ser.close() # close port
-    time.sleep(900)
+    time.sleep(300)
