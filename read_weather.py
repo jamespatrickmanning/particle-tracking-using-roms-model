@@ -90,15 +90,13 @@ while True:
                     time.sleep(1)
                     ser1.writelines('\n')
                     time.sleep(1)
-                    ser1.writelines('yab'+'\n') # Force the given
-message to idle.
+                    ser1.writelines('yab'+'\n') # Force the given message to idle.
                     time.sleep(5)
                     ser1.writelines('\n')
                     time.sleep(1)
                     ser1.writelines('\n')
                     time.sleep(1)
-
-#ser.writelines('ylb9'+meandepth+rangedepth+time_len+meantemp+sdeviatemp+'\n')
+                    #ser.writelines('ylb9'+meandepth+rangedepth+time_len+meantemp+sdeviatemp+'\n')
                     ser1.writelines('ylb9'+mes1+'\n')
                     time.sleep(2) # 1100s 18 minutes
                     ser1.close() # close port
