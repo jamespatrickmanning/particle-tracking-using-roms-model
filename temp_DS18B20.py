@@ -14,6 +14,8 @@ base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 
+transmit = 'ON' # ON, OFF
+
 def read_temp_raw():
     f = open(device_file, 'r')
     lines = f.readlines()
@@ -35,30 +37,33 @@ def read_temp():
 while True:
     #print("temp C=%f\ttemp F=%f" % read_temp())
     # Send data every 10 minutes.
-    time.sleep(230)
+    time.sleep(300)
 
     mes = "%.6d0%.6d" % read_temp()
     print mes
-    #ser=serial.Serial('COM16', 9600) # in Windows
-    ser=serial.Serial('/dev/ttyUSB0',9600) # linux
-    #print 'Open serial port.'
-    # send the data
-    time.sleep(1)
-    ser.writelines('\n')
-    time.sleep(1)
-    ser.writelines('\n')
-    time.sleep(1)
-    ser.writelines('yab'+'\n') # Force the given message to idle.
-    time.sleep(60)
-    ser.writelines('\n')
-    time.sleep(1)
-    ser.writelines('\n')
-    time.sleep(1)
-    #ser.writelines('ylb9'+meandepth+rangedepth+time_len+meantemp+sdeviatemp+'\n')
-    ser.writelines('ylb90'+mes+'\n')
-    time.sleep(3)
-    #print 'Sending data: '+meandepth+rangedepth+time_len+meantemp+sdeviatemp
-    #print datetime.now()
-    time.sleep(2) # 1100s 18 minutes
-    ser.close() # close port
-    time.sleep(300)
+    if transmit == 'ON':
+        #ser=serial.Serial('COM16', 9600) # in Windows
+        ser=serial.Serial('/dev/ttyUSB0',9600) # linux
+        #print 'Open serial port.'
+        # send the data
+        time.sleep(1)
+        ser.writelines('\n')
+        time.sleep(1)
+        ser.writelines('\n')
+        time.sleep(1)
+        ser.writelines('yab'+'\n') # Force the given message to idle.
+        time.sleep(5)
+        ser.writelines('\n')
+        time.sleep(1)
+        ser.writelines('\n')
+        time.sleep(1)
+        #ser.writelines('ylb9'+meandepth+rangedepth+time_len+meantemp+sdeviatemp+'\n')
+        ser.writelines('ylb90'+mes+'\n')
+        #time.sleep(3)
+        #print 'Sending data: '+meandepth+rangedepth+time_len+meantemp+sdeviatemp
+        #print datetime.now()
+        time.sleep(2) # 1100s 18 minutes
+        ser.close() # close port
+        time.sleep(288)
+    except:
+        print 'Can not send data.'
