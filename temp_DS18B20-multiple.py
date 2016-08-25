@@ -27,7 +27,7 @@ for i in device_folder:
     device_files.append(device_file)
     
 
-transmit = 'OFF' # ON,OFF
+transmit = 'ON' # ON,OFF
 cs1 = []; cs2 = [] #celcius degree lists
 send_interval = 5 # unit: minute
  
