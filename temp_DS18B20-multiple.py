@@ -46,15 +46,16 @@ def read_temp():
             temp_c.append((float(temp_string)/1000.0+30)*100)
             #temp_f.append(float(temp_string)/1000.0 * 9.0 / 5.0 + 32.0)
     return temp_c#, temp_f
-	
+i=0	
 while True:
     #cs,fs = read_temp()
     cs = read_temp()
     '''for i in range(len(cs)):
         #print i
         print "ID:%d temp C=%f\ttemp F=%f" % (i,cs[i],fs[i])#'''
-    print "temp1: %d, temp2: %d" % (cs[0],cs[1])
-    print '\n'
+    print "%d temp1: %d, temp2: %d" % (i,cs[0],cs[1])
+    #print '\n'
+    i=i+1
     time.sleep(3)
 '''while True:
     #print("temp C=%f\ttemp F=%f" % read_temp())
