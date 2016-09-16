@@ -2,7 +2,7 @@ import serial
 import numpy as np
 import datetime
 import math,time
-
+#LLLLLL
 # Automatic detect USB port
 try:
     ser = serial.Serial('/dev/ttyUSB0',9600,timeout=30)
