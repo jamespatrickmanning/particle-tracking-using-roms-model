@@ -7,7 +7,7 @@ Modifications by JiM in early 2018
 
 This routine assumes at least two other programs have run:
 "roms.py" does particle tracking (JiM renamed this to "track_roms.py"
-"retention_particles.py" calculates % retention for different times
+"retention_of_particles.py" calculates % retention for different times (JiM renamed this to "retention_vs_years.py"
 """
 import datetime as dt
 import pytz
